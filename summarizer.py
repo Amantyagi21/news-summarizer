@@ -1,6 +1,7 @@
-from groq import Groq
+ from groq import Groq
+import os
 
-client = Groq(api_key="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")
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 def summarize_karo(text, language="Hindi"):
     if language == "Hindi":
@@ -31,4 +32,4 @@ def sentiment_karo(title):
     elif "Negative" in result:
         return "Negative"
     else:
-        return "Neutral" 
+        return "Neutral"
